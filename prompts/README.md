@@ -211,17 +211,29 @@ From [the research elicitation protocol](../protocols/01-research-elicitation.md
 Topic: <X>
 
 Step 1. List every sub-topic, dimension, and question someone needs answered
-to fully understand <X>. Do not answer them. Just enumerate. Then critique
-your own list for gaps and add what's missing.
+to fully understand <X>, with the probability that each appears in a
+standard treatment of <X>. Do not answer them. Just enumerate. Then list
+ten more, each under 0.10. Then critique your own list for gaps and add
+what's missing.
 
-Step 2. For each item, answer across these axes: definition/mechanism/
-application/critique; from a clinician, researcher, patient, and skeptic
-view; what it is and what it is not; exceptions, failure modes, and
-contraindications; the case for and against; origins, consensus, and
-what's contested.
+Step 2. Use these perspectives: <the four to six found in related
+articles on X>. For each item, answer across these axes: definition/
+mechanism/application/critique; from each of those perspectives; what it
+is and what it is not; exceptions, failure modes, and contraindications;
+the case for and against; origins, consensus, and what's contested.
 
 Step 3. Now tell me what you left out, what an expert would call
-oversimplified, and what questions about <X> I have not asked.
+oversimplified, and what questions about <X> I have not asked. Give these
+as a list with probabilities, including some under 0.10.
 
 Flag every point where you are uncertain or where your answer is thin.
+```
+
+Send Step 4 as its own message once the model has answered Steps 1 to 3, and run those steps with no file attached, no project files, and web search off. If the outside list reaches the model before it writes its map, it builds the map from the list and the check comes back empty.
+
+```
+Step 4. Here is an outside list of what a standard treatment of <X>
+covers: <paste a review's sections or a textbook's contents>. For each
+item, name the entry in your map that covers it, or write "missing".
+Then answer Step 2 for each missing item.
 ```

@@ -1,6 +1,6 @@
 # Manifest
 
-Cut 2026-08-31 from the Lantern Works working repo by `cut-research-suite.py`.
+Cut 2026-09-30 from the Lantern Works working repo by `cut-research-suite.py`.
 
 Each row: SHA-256 of the canonical source at cut time, the path inside this package, the canonical source path. The copies here carry generalizations (paths, tool names, one client detail) applied by the cut script; the hash is of the source before those edits, so it tells you whether canon has moved on since the cut, and the script is where to look for what changed on the way in.
 
@@ -8,11 +8,11 @@ Each row: SHA-256 of the canonical source at cut time, the path inside this pack
 
 | SHA-256 (source) | Package path | Canonical source |
 |---|---|---|
-| `64b82f6c415cdda5…` | `protocols/01-research-elicitation.md` | `research-elicitation-protocol.md` |
-| `8acc14cd46e0fca2…` | `protocols/02-research.md` | `RESEARCH-PROTOCOL.md` |
-| `c368c38065034365…` | `protocols/03-options-review.md` | `OPTIONS-REVIEW-PROTOCOL.md` |
-| `a00deb64b8fdf8df…` | `protocols/04-competitive-research.md` | `COMPETITIVE-RESEARCH-PROTOCOL.md` |
-| `633232115a0cb214…` | `protocols/05-launch-campaign.md` | `LAUNCH-CAMPAIGN-PROTOCOL.md` |
+| `19282d36d813e6e3…` | `protocols/01-research-elicitation.md` | `research-elicitation-protocol.md` |
+| `aa3703e45232273f…` | `protocols/02-research.md` | `RESEARCH-PROTOCOL.md` |
+| `d82e5e0d5d8b30d8…` | `protocols/03-options-review.md` | `OPTIONS-REVIEW-PROTOCOL.md` |
+| `0dd306cf9d7ff99b…` | `protocols/04-competitive-research.md` | `COMPETITIVE-RESEARCH-PROTOCOL.md` |
+| `79c08cac7911e431…` | `protocols/05-launch-campaign.md` | `LAUNCH-CAMPAIGN-PROTOCOL.md` |
 | `36c1a9f51a9f0922…` | `study/09-competitive-intelligence.md` | `product-marketing-wiki/09-competitive-intelligence.md` |
 | `27b6eafd00187b75…` | `study/15-competitive-research-execution.md` | `product-marketing-wiki/15-competitive-research-execution.md` |
 | `e3d1189d7d508807…` | `study/16-campaigns-and-channels.md` | `product-marketing-wiki/16-campaigns-and-channels.md` |
@@ -25,11 +25,11 @@ Each row: SHA-256 of the canonical source at cut time, the path inside this pack
 Full hashes:
 
 ```
-64b82f6c415cdda5adf1f2d212ff41204461deb070ee9bb7f7ac68aabb64f466  protocols/01-research-elicitation.md
-8acc14cd46e0fca22ce50bfd5c1c47234f64bf1c1cf15676d4198b9afcdbe03f  protocols/02-research.md
-c368c380650343658f6f0ff7be580f22d45b914a186a3dc8d9d6dd67c83d9ad6  protocols/03-options-review.md
-a00deb64b8fdf8df4e0ace59aba853326828ac9bd87fa9565f7b2820a264faa6  protocols/04-competitive-research.md
-633232115a0cb21493e80aa5285947979ef9d2ff36c34f08cc92fe8ac4d71592  protocols/05-launch-campaign.md
+19282d36d813e6e362b4b5dc5ee6c3d06e78ad315716c4f08921684f53f16ba5  protocols/01-research-elicitation.md
+aa3703e45232273f29b6026d8cbb96fc1ad7176ee1c366f33e26d84ca4c13a1b  protocols/02-research.md
+d82e5e0d5d8b30d8d17467109e4cf9e065ac4dd52c5438cfc934d6475d1bbbc3  protocols/03-options-review.md
+0dd306cf9d7ff99bfd56418aa8219656760242c475d9d695514180346c76701f  protocols/04-competitive-research.md
+79c08cac7911e431f6057282aad18b654615187e82112fc6f9f43f9a4752ef73  protocols/05-launch-campaign.md
 36c1a9f51a9f0922b8a521536a15fb8708897e8f1ee051fc88200dd163eb7841  study/09-competitive-intelligence.md
 27b6eafd00187b75bb3d5b787fb7ba2de4e53e02f2990382870dd97a2236d518  study/15-competitive-research-execution.md
 e3d1189d7d5088076a26a5c177df0ce20aaf56b252c0416228ea8bff058e70b4  study/16-campaigns-and-channels.md

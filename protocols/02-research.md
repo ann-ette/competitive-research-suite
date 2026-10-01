@@ -1,5 +1,7 @@
 # Research Protocol
 
+Last reviewed: 2026-05-26 (first commit; no check of its method against outside practice is recorded since).
+
 > Read this first on "deep research", "do a deep dive on X", "research X for me", or any request for sourced answers on a topic.
 
 This is the workflow for any sourced research. It applies to product work, client work, writing, and personal study alike.
@@ -9,6 +11,20 @@ This is the workflow for any sourced research. It applies to product work, clien
 > **When the subject is another organization**, [the competitive research protocol](04-competitive-research.md) layers on top of this one. Everything here still applies; that file adds what changes when the source has a marketing department: evidence tiers E1 to E6, the buyer's-set inclusion test, falsification in fresh context, the per-competitor record schema, refresh cadence, and the collection-and-publication legal gate.
 
 ---
+
+## Receipts Are the Default
+
+**Anything researched ships with links back to its sources. Every time, without being asked.** A claim a reader cannot trace is a claim they have to take on trust.
+
+What that means in practice:
+
+- **Every factual claim carries an inline link to the source that produced it**, in the body where the claim is read. A source named in prose with the URL only in a list at the bottom still makes the reader hunt.
+- **Every research page ends in a `## Bibliography`** in the entry shape below, with a tier tag and an access date on each entry. This holds even when the page fetched nothing itself.
+- **A page that reasons over other pages links to those pages beside each claim, and still lists the underlying originals.** The reader gets to the primary source in one hop rather than two. In my own knowledge base, a synthesis page that collected nothing itself carries a full bibliography naming which sibling page fetched each source and on what date.
+- **A carried-forward access date is labelled as carried**, since it records when somebody else fetched the page rather than when this one did. Re-check the load-bearing few at source and mark those separately.
+- **A claim with no linkable source says so in the text.** "I did not look this up," or "carried from an earlier recap, not re-fetched," beats a bare assertion.
+
+**Existing pages get amended when next touched, with no migration sweep.** A sweep restamps every `last_updated` date and destroys the staleness signal.
 
 ## When This Fires
 - Phrase triggers: "deep research", "deep dive", "research this", "find sources on", "what do we know about", "look into X for me"
@@ -60,7 +76,7 @@ If a high-value source is paywalled, login-walled, geo-blocked, or otherwise ina
   Used for: [which claim or section]
 ```
 
-**Where the bibliography lives.** Two places, and only two. A searchable union across every project (mine is one JSON file the workspace writes to; a spreadsheet does the same job), and the per-deliverable record: sources at the bottom of the post, page, or report itself, in the entry shape above, so they ship with the artifact. A third copy in between only drifts.
+**Where the bibliography lives.** Two places, and only two. A searchable union across every project, and the per-deliverable record: sources at the bottom of the post, page, or report itself, in the entry shape above, so they ship with the artifact. A third copy in between only drifts. My union is one JSON file that fills itself: once a day a script copies in every source a knowledge-base page's `## Bibliography` cites, so a research session writes the page's bibliography and adds nothing anywhere else. A spreadsheet does the same job with a manual paste.
 
 ## Where Research Output Lives
 
@@ -77,6 +93,22 @@ Pages are split by kind:
 - **The test that resolves the two** (from [the competitive research protocol](04-competitive-research.md)): **a claim about one organization is a `Companies/` claim; a claim about the relationship between organizations is an `Industries/` claim.** So pricing, scale, and capability go to Companies, while a roster, a comparison, a shortlist finding, or a capability matrix goes to Industries and cites the Companies pages for every underlying fact. Every Companies page carries a `Part of:` line to its set page; every set page carries the roster with links back.
 - **`## Bibliography` is the heading** inside the base, in the entry shape above.
 - Each page is self-contained: title, 2-3 tags, a 2-3 sentence summary, a confidence map, body with inline citations, a page-level Bibliography, a "Related pages" cross-reference line, and a "Last updated" date.
+
+## Research Runs Write Straight to Disk
+
+**A research page goes to its knowledge-base folder the moment it's finished, and its downloaded sources go to `source-library/` under the same path.** A session scratchpad can be temporary (mine is emptied by macOS on restart), and a multi-agent workflow's journal keeps each agent's summary and the path it wrote, while the page itself exists only where it was written. On 2026-09-23 a two-workflow run on practice verticals wrote all 18 pages (1.8 MB) and 691 MB of sources only to its scratchpad. The first workflow had already been interrupted once that day, and the pages survived because the Mac happened not to restart.
+
+- **Pages.** Write each to `knowledge-base/Industries/<Topic>/` or `Companies/<Name>/` as soon as its agent finishes, with a `**Status:** draft` line in the header block while it still owes a pass (a source check, an integration step). Delete the line when the page is done, so a page without it reads as finished, as every older page is.
+- **Sources.** Fetch PDFs, HTML and extracted text straight into `source-library/Industries/<Topic>/` (or `Companies/<Name>/`), mirroring the page folder. `source-library/` is gitignored, so hundreds of megabytes stay out of git history and still survive a restart. A copy made at the end of a run protects nothing from a restart during it.
+- **The scratchpad** holds working files: scripts, partial extracts, check output, page parts before assembly.
+- **A workflow script takes both folders as arguments and refuses to start without them.** The launching session lists the knowledge base first and reuses an existing folder when one fits, since a name worked out from the topic can land beside a near-duplicate. It passes absolute paths, and every agent prompt names the exact file that agent writes. When a path contains a space, an agent quotes it in every shell command.
+
+```js
+const KB = args && args.kbDir, SRC = args && args.sourceDir
+if (!KB || !SRC) throw new Error('research workflow needs args.kbDir and args.sourceDir as absolute paths')
+```
+
+- **Before closing,** list any markdown in the session's scratchpad with no copy in the knowledge base. Mine is a short script that a pre-commit hook also runs.
 
 ## Deliverable Format
 

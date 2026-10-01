@@ -1,5 +1,7 @@
 # Competitive Research Protocol
 
+Last reviewed: 2026-08-25 (the sourced pass behind its amendments).
+
 > Read this on "competitive research", "competitive analysis", "who else does this", "build me a competitive set", "battlecard", "comparison page", or when a positioning, pricing, or launch decision needs to know what the buyer is comparing against.
 
 This is the fourth sibling to the [research protocol](02-research.md), the [elicitation protocol](01-research-elicitation.md), and the [options-review protocol](03-options-review.md). Elicitation finds the gaps in a topic. Research sources them. Options review benchmarks a technical decision against the field. This one governs research about **other organizations**, where the subject has a marketing department, a legal team, and an incentive to be misdescribed.

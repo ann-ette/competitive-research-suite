@@ -1,5 +1,7 @@
 # Options-Review Protocol
 
+Last reviewed: 2026-07-03 (registered; no check of its method against outside practice is recorded since).
+
 > Read this when choosing or revisiting a load-bearing technology or approach, or when a review said "looks solid" and you want to know whether a better option exists that the review never named.
 
 This is the third sibling to the [research protocol](02-research.md) and the [elicitation protocol](01-research-elicitation.md). Elicitation finds the gaps in a topic. Research sources them. This one benchmarks a **decision** against the field before you commit to it. The other two cover coverage and sourcing and say nothing about decision quality, which is the hole this fills.

@@ -1,5 +1,7 @@
 # Launch Campaign Protocol
 
+Last reviewed: 2026-08-26 (the sourced naming and answer-engine passes; four passes are still owed, listed under Evidence status).
+
 > Read this on "launch plan", "campaign", "how should we announce this", "what do we call it", "GTM plan for the release", or when something has shipped and nobody has written down what the launch is supposed to change.
 
 This is the fifth sibling to the [research protocol](02-research.md), the [elicitation protocol](01-research-elicitation.md), the [options-review protocol](03-options-review.md), and the [competitive research protocol](04-competitive-research.md). Elicitation finds the gaps in a topic. Research sources them. Options review benchmarks a technical decision against the field. Competitive research governs claims about other organizations. This one governs the campaign: what the launch is for, what it gets called, which surfaces carry it, and how anyone would know afterward whether it worked.
