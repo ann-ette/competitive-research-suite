@@ -173,15 +173,18 @@ METHOD (in order, do not skip step 2):
 2. BUILD THE FRONTIER FIRST. For EACH decision, BEFORE looking at what I chose,
    independently reconstruct the option space from the field. Name at least FOUR real,
    specific alternatives. At least one MUST be classical, and at least one MUST be a
-   COMPLEMENT that combines with an existing choice rather than replacing it. Cite a
-   primary source for each. Do this without reference to my implementation.
+   COMPLEMENT that combines with an existing choice rather than replacing it. Give the
+   alternatives as a set with a rough probability that each appears in a standard
+   treatment, including a few under 0.10. Cite a primary source for each. Do this
+   without reference to my implementation.
 3. COMPARE. Only now place my choice into that space and compare on these axes: [AXES].
    Be concrete about the query class, workload, data scale, or failure mode where each
-   rival beats mine. "Exact-term / proper-noun / rare-token recall" must be one axis.
+   rival beats mine. One axis must be the failure my current choice is worst at (for
+   retrieval: exact-term / proper-noun / rare-token recall).
 4. FILTER by my hard constraints: [CONSTRAINTS]. Flag violations but still name them.
 5. VERDICT per decision: KEEP / ADD (complement) / SWITCH, plus the trigger that would
-   change it and the concrete experiment I can run to decide (metric + held-out set +
-   pass rule).
+   change it, the concrete experiment I can run to decide (metric + held-out set +
+   pass rule), and its status (owed, settled, or superseded).
 
 EVIDENCE + HONESTY:
 - Web-verify every benchmark against its actual source. Do NOT cite from memory. If you

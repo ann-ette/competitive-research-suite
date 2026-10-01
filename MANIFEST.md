@@ -9,8 +9,8 @@ Each row: SHA-256 of the canonical source at cut time, the path inside this pack
 | SHA-256 (source) | Package path | Canonical source |
 |---|---|---|
 | `19282d36d813e6e3…` | `protocols/01-research-elicitation.md` | `research-elicitation-protocol.md` |
-| `aa3703e45232273f…` | `protocols/02-research.md` | `RESEARCH-PROTOCOL.md` |
-| `d82e5e0d5d8b30d8…` | `protocols/03-options-review.md` | `OPTIONS-REVIEW-PROTOCOL.md` |
+| `783adfebfedf91a4…` | `protocols/02-research.md` | `RESEARCH-PROTOCOL.md` |
+| `37285610074fe582…` | `protocols/03-options-review.md` | `OPTIONS-REVIEW-PROTOCOL.md` |
 | `0dd306cf9d7ff99b…` | `protocols/04-competitive-research.md` | `COMPETITIVE-RESEARCH-PROTOCOL.md` |
 | `79c08cac7911e431…` | `protocols/05-launch-campaign.md` | `LAUNCH-CAMPAIGN-PROTOCOL.md` |
 | `36c1a9f51a9f0922…` | `study/09-competitive-intelligence.md` | `product-marketing-wiki/09-competitive-intelligence.md` |
@@ -26,8 +26,8 @@ Full hashes:
 
 ```
 19282d36d813e6e362b4b5dc5ee6c3d06e78ad315716c4f08921684f53f16ba5  protocols/01-research-elicitation.md
-aa3703e45232273f29b6026d8cbb96fc1ad7176ee1c366f33e26d84ca4c13a1b  protocols/02-research.md
-d82e5e0d5d8b30d8d17467109e4cf9e065ac4dd52c5438cfc934d6475d1bbbc3  protocols/03-options-review.md
+783adfebfedf91a415d1fcea65e7f871d3ddf8a5085953f25fadbf719b162e84  protocols/02-research.md
+37285610074fe582322d2fd6c39af932e2fe42881756c07259c112fdb1a5e2ec  protocols/03-options-review.md
 0dd306cf9d7ff99bfd56418aa8219656760242c475d9d695514180346c76701f  protocols/04-competitive-research.md
 79c08cac7911e431f6057282aad18b654615187e82112fc6f9f43f9a4752ef73  protocols/05-launch-campaign.md
 36c1a9f51a9f0922b8a521536a15fb8708897e8f1ee051fc88200dd163eb7841  study/09-competitive-intelligence.md

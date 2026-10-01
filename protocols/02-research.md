@@ -1,6 +1,6 @@
 # Research Protocol
 
-Last reviewed: 2026-05-26 (first commit; no check of its method against outside practice is recorded since).
+Last reviewed: 2026-09-30 (first pass against outside practice: intelligence analysis, evidence grading, search reporting, fact checking, and measurements of model-written citations).
 
 > Read this first on "deep research", "do a deep dive on X", "research X for me", or any request for sourced answers on a topic.
 
@@ -23,6 +23,7 @@ What that means in practice:
 - **A page that reasons over other pages links to those pages beside each claim, and still lists the underlying originals.** The reader gets to the primary source in one hop rather than two. In my own knowledge base, a synthesis page that collected nothing itself carries a full bibliography naming which sibling page fetched each source and on what date.
 - **A carried-forward access date is labelled as carried**, since it records when somebody else fetched the page rather than when this one did. Re-check the load-bearing few at source and mark those separately.
 - **A claim with no linkable source says so in the text.** "I did not look this up," or "carried from an earlier recap, not re-fetched," beats a bare assertion.
+- **Each citation supports the sentence it sits beside.** A working, on-topic link is the normal case even when the claim is unsupported, so checking that a link opens finds almost nothing. For every load-bearing citation, reopen the source and find the passage that says what the sentence says. Resolve every arXiv id and DOI and match its title, since a real id attached to the wrong paper reads as fine. When a model drafted the page, run this check in a fresh context that does not hold the draft.
 
 **Existing pages get amended when next touched, with no migration sweep.** A sweep restamps every `last_updated` date and destroys the staleness signal.
 
@@ -34,9 +35,9 @@ What that means in practice:
 ## Workflow
 
 1. **Confirm scope before searching.** One sentence back to whoever asked: "Reading this as: [restated question]. Time-bounded to [horizon]? Geography? Adjacent topics in or out?" Skip this only if the ask is unambiguous.
-2. **Build a source map first.** Before opening anything, list intended source categories (academic / industry / primary / news / opinion). For anything substantial (>30 min of work) show the map and let the asker redirect.
+2. **Build a source map first.** Before opening anything, list intended source categories (academic / industry / primary / news / opinion). For anything substantial (>30 min of work) show the map and let the asker redirect. A claim that something is absent ("no source found," "nothing published on X") names the searches behind it and the date they ran, since a negative from one search path is weak evidence.
 3. **Prioritize primary sources.** Company filings, official docs, original research papers, press releases from the source. Secondary sources are for synthesis, not for load-bearing claims.
-4. **Cross-verify load-bearing claims.** Never trust a single source for a number, date, or causal claim that the final artifact will rest on. Two independent sources minimum.
+4. **Cross-verify load-bearing claims.** Never trust a single source for a number, date, or causal claim that the final artifact will rest on. Two independent sources minimum. **Independent means separate origins:** trace each source back to where the claim started, and count sources that rest on one press release, paper, dataset, or vendor post as one. Then run one search phrased to find the source that **contradicts** the claim, because a search for confirmation finds confirmation.
 5. **Bibliography grows as I go, not at the end.** Every source I open gets logged immediately, even if I end up not using it. The "rejected" pile is itself useful evidence.
 6. **Synthesize with inline citations.** Answer up top, citations inline, full bibliography at the bottom.
 7. **Flag what I couldn't access.** Blocked sources get called out by name in the deliverable, not silently dropped. See blocked-source protocol below.
@@ -55,9 +56,13 @@ What that means in practice:
 
 **Hard exclusions:** AI-generated SEO content, content farms, "X explained in 5 minutes" YouTube without a credentialed source, paraphrased aggregators of original reporting.
 
+**Two checks before leaning on a source:**
+- **An unfamiliar source gets read laterally.** Leave the page and see what independent sources say about who runs it before trusting what it says about itself. Official-looking logos, domains, and polish are what fool careful readers.
+- **A load-bearing paper gets its status recorded.** Say whether it is peer reviewed or a preprint (anything only on arXiv is a preprint), and check it has not been retracted: Crossref has published the Retraction Watch database openly since 2023, and the publisher's page carries any notice.
+
 ## Blocked-Source Protocol
 
-If a high-value source is paywalled, login-walled, geo-blocked, or otherwise inaccessible:
+If a high-value source is paywalled, login-walled, geo-blocked, or otherwise inaccessible, first look for an open copy of the same work: PubMed Central or Europe PMC, arXiv, the author's or institution's page. An open copy of the same text is the same source, so taking it is no substitution. Unpaywall requires an email in every request, so it gets the shared support address or nothing, never a person's own. If no open copy exists:
 
 1. **Stop. Do not silently substitute** a weaker source. Silent substitution is the failure mode this protocol exists to prevent.
 2. **Say exactly what's blocked and why it matters.** Format: *"Blocked: [source]. Needed for: [specific claim or section]. Substitute quality: [strong / weak / none available]."*
@@ -70,11 +75,13 @@ If a high-value source is paywalled, login-walled, geo-blocked, or otherwise ina
 
 ## Bibliography Format
 
-**Default entry shape:**
+**Entry shape:**
 ```
 - [Title](url) · Author(s), Publication, YYYY-MM-DD. Accessed YYYY-MM-DD. [primary / secondary / opinion]
   Used for: [which claim or section]
 ```
+
+In my setup a daily sync reads this shape: the tier tag, `Accessed`, `Used for:`, "carried from," and "rejected" or "not used" for the set-aside pile. A change to the shape needs the sync changed with it.
 
 **Where the bibliography lives.** Two places, and only two. A searchable union across every project, and the per-deliverable record: sources at the bottom of the post, page, or report itself, in the entry shape above, so they ship with the artifact. A third copy in between only drifts. My union is one JSON file that fills itself: once a day a script copies in every source a knowledge-base page's `## Bibliography` cites, so a research session writes the page's bibliography and adds nothing anywhere else. A spreadsheet does the same job with a manual paste.
 
@@ -121,9 +128,10 @@ Default structure for any deep-research output:
 [2-3 sentence answer. The thing that was actually asked.]
 
 ## Confidence map
-- High confidence: [claims with 2+ independent primary sources]
-- Medium confidence: [single strong source, or multi-source but secondary]
+- High confidence: [claim] (why: e.g. two independent primary sources that agree)
+- Medium confidence: [claim] (why it falls short: one study, vendor-run, abstract only, a different population, small sample)
 - Contested / unresolved: [conflicting sources, flag both sides]
+- My reasoning, unsourced: [inferences, also marked where they are read in the body]
 
 ## [Body sections with inline citations]
 
@@ -136,6 +144,8 @@ Default structure for any deep-research output:
 
 Skip sections that don't apply. Don't pad.
 
+**Each confidence level names its reason.** A count of sources is a start. What lowers confidence is a source's quality, whether the sources agree, and whether they measured this question or a neighboring one, so the map says which applies.
+
 ## Anti-Patterns (Do Not Do)
 
 - Don't aggregate from secondary sources without checking the primary.
@@ -144,3 +154,21 @@ Skip sections that don't apply. Don't pad.
 - Don't silently skip blocked sources.
 - Don't write a wall of prose when a table or list would serve.
 - Don't violate the house voice rules (no em dashes, no space-hyphen-space, sentence case in prose, no AI tells, fewer words).
+
+## Research Grounding (2026-09-30)
+
+The first check of this protocol against outside practice. Sources were read at abstract or summary level unless marked.
+
+**What changed the protocol.**
+- Liu, Zhang & Liang (2023), Evaluating Verifiability in Generative Search Engines, Findings of EMNLP. Only 74.5% of citations supported the sentence they were attached to. https://arxiv.org/abs/2304.09848
+- Onweller et al. (2026), Cited but Not Verified. Across 14 models, links worked over 94% of the time and the cited claims held 39 to 77% of the time. Why the check is on support. https://arxiv.org/abs/2605.06635
+- Venkit et al. (2025), DeepTRACE. Deep-research systems leave a large fraction of their statements unsupported by their own listed sources. https://arxiv.org/abs/2509.04499
+- Walters & Wilder (2023), Scientific Reports 13:14045. 18% of GPT-4's citations were fabricated, and 24% of its real ones carried substantive errors. Why ids get resolved. https://doi.org/10.1038/s41598-023-41032-5
+- Caulfield (2019), SIFT. Trace claims, quotes, and media back to the original context. Why independence means separate origins. https://hapgood.us/2019/06/19/sift-the-four-moves/
+- ODNI (2015, amended 2022), ICD 203 Analytic Standards, read in full. Consider contrary information, describe source quality, and distinguish information from judgment. Why the contradicting search and the reasoning label. https://archive.dni.gov/files/documents/ICD/ICD-203.pdf
+- GRADE Handbook (2013). Certainty is rated down for risk of bias, inconsistency, indirectness, imprecision, and publication bias. Why each confidence level carries a reason. https://gdt.gradepro.org/app/handbook/handbook.html
+- Wineburg & McGrew (2019), Teachers College Record 121(11), read through Breakstone et al. (2021). Fact checkers judge a site by leaving it. Why unfamiliar sources are read laterally. https://misinforeview.hks.harvard.edu/article/lateral-reading-college-students-learn-to-critically-evaluate-internet-sources-in-an-online-course/
+- Schneider, Woods & Proescholdt (2022), the RISRS report. 5.4% of citations made after a retraction acknowledged it. Why load-bearing papers get a status check. https://pmc.ncbi.nlm.nih.gov/articles/PMC9483880/
+- Rethlefsen et al. (2021), PRISMA-S, Systematic Reviews 10:39. Searches reported as run, with the date. Why absence claims name their searches. https://pmc.ncbi.nlm.nih.gov/articles/PMC7839230/
+
+**What confirmed it.** Pew Research Center (2024) found 38% of pages from 2013 gone a decade later, and Zittrain, Albert & Lessig (2014) found reference rot in most law-journal links. The rule that downloaded sources are kept on disk already answers both. https://www.pewresearch.org/data-labs/2024/05/17/when-online-content-disappears/
